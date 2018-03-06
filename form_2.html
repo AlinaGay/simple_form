@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+
+<input type="button" onclick="myFunction()" value="Try it">
+
+<script>
+    function myFunction()
+    {var obj = JSON.parse('{ "name":"John", "age":30, "sale":true}');
+        for (x in obj) {
+            document.getElementById("demo").innerHTML += x + ": " + obj[x]+ "<br>"}
+    }
+</script>
+<p id="demo"></p>
+</body>
+</html>
