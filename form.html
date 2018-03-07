@@ -6,39 +6,25 @@
 </head>
 <body>
 <form>
-    First name: <input type="text" name="FirstName" id="FirstName" value=""><br>
-    Last name: <input type="text" name="LastName" id="LastName" value=""><br>
-    Full age: <input type="number" name="FullAge" id="Age" value=""><br>
-    Date of completion: <input type="date" id="myDate" value=""><br>
-    <input type="button" id="myBtn" onclick="myFunction()" value="send">
-    <p id="string1"></p>
-    <p id="string2"></p>
-    <p id="number"></p>
+    Name: <input type="text" id="Name" value=""><br>
+    Full age: <input type="number" name="Age" id="Age" value=""><br>
+    Date of completion: <input type="date" id="Date" value=""><br>
+    Do you agree the processing of personal data? <input type="radio" id="Yes" onclick=""> Yes<br>
+    <input type="button" id="But" onclick="myFunction()" value="send">
+
 
 </form>
 <script>
-    var myJSON = '{ "name":"Alina" }';
-    var myObj = JSON.parse(myJSON);
-    document.getElementById("demo").innerHTML = myObj.name;
-    function myFunction() {
-        var x = Boolean(document.getElementById("FirstName").value);
-        if (x==true) {document.getElementById("string1").innerHTML = 'Field First name is full'}
-        else {document.getElementById("string1").innerHTML = 'Please fill up the field First name'}
+        function myFunction() {
+        var n = document.getElementById("Name").value;
+        var a = document.getElementById("Age").value;
+        var d = document.getElementById("Date").value;
+        var y = Boolean(document.onclick.value);
+        var obj = JSON.parse('{ "Name":n, "Full age":a, "Date of completion":d, "Agreemant":y}');
+            for (x in obj) {
+                document.getElementById("demo").innerHTML += x + ": " + obj[x]+ "<br>"}
 
-
-        var y = Boolean(document.getElementById("LastName").value);
-        if (y==true) {document.getElementById("string2").innerHTML = 'Field Last name is full'}
-        else {document.getElementById("string2").innerHTML = 'Please fill up the field Last name'}
-
-
-        var z = Boolean(document.getElementById("Age").value);
-        if (z==true) {document.getElementById("number").innerHTML = 'Field Full age is full'}
-        else {document.getElementById("number").innerHTML = 'Please fill up the field Full age'}
-
-        var d = Boolean(document.getElementById("myDate").value);
-        if (d==true) {document.getElementById("date").innerHTML = 'Field Date of completion is full'}
-        else {document.getElementById("date").innerHTML = 'Please fill up the field Date of completion'}
     }
 </script>
-<input type="textarea" id="date">
+<reachtext id="demo"></reachtext>
 </body>
