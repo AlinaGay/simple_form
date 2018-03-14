@@ -5,12 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form>
+<form id="mainForm">
     Name: <input id="name" type="text"  onblur="validationName()" value="">
-    <div id="textArea"></div><br>
-    Full age: <input id="age" type="number" value=""><br>
-    Date of completion: <input id="date" type="date" value=""><br>
-    Do you agree the processing of personal data? <input id="yes" type="checkbox" checked="checked"> Yes<br>
+    <br>Full age: <input id="age" type="number" value="">
+    <br>Date of completion: <input id="date" type="date" value="">
+    <br>Do you agree the processing of personal data? <input id="yes" type="checkbox" checked="checked"> Yes<br>
     <input id="but" type="button" onclick="myFunction()" value="send">
     <p id="outputString" datatype="text"></p>
     <p id="outputNumber" datatype="text"></p>
@@ -18,16 +17,16 @@
     <p id="outputBool" datatype="text"></p>
 </form>
 <script>
-
     function validationName() {
-        var re = new RegExp("^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$");
+        var re = new RegExp("^[A-Z][a-zA-Z-' ]+[a-zA-Z']?$");
         var text = document.getElementById("name").value
         if (re.test(text)==false){
-            //var para = document.createElement("div");
-            var node = document.createTextNode("Please, enter right name");
-            //para.appendChild(node);
+            var para = document.createElement("span");
+            para.innerHTML="Please, enter right name";
 
-            document.getElementById("name").appendChild(node);
+            var form=document.getElementById("mainForm")
+            form.insertBefore(para, form.childNodes[3])
+
         }
     }
     function myFunction() {
@@ -48,4 +47,3 @@
 </script>
 <reachtext id="demo"></reachtext>
 </body>
-
